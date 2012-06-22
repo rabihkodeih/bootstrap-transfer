@@ -1,0 +1,131 @@
+.bootstrap-transfer-container {
+/* 	min-width: 280px; */
+}
+
+.bootstrap-transfer-container select {
+	height: 10em;
+	-webkit-border-radius: 0 0 4px 4px;
+       -moz-border-radius: 0 0 4px 4px;
+            border-radius: 0 0 4px 4px;
+}
+
+.bootstrap-transfer-container .filtered {
+	margin:0;
+	width:100%;
+}
+
+
+.bootstrap-transfer-container .selector-available,
+.bootstrap-transfer-container .selector-chosen {
+	float: left;
+	width: 100%;
+	text-align: center;
+}
+
+.bootstrap-transfer-container .selector-available h2 {
+	background: white url("../img/bootstrap-transfer-nav-bg.gif") bottom left repeat-x;
+}
+
+.bootstrap-transfer-container .selector-chosen h2 {
+	background: white url("../img/bootstrap-transfer-default-bg.gif") bottom left repeat-x;
+	color: white;
+}
+
+.bootstrap-transfer-container .selector-available h2,
+.bootstrap-transfer-container .selector-chosen h2 {
+	border: 1px solid #CCC;
+	margin: 0;
+	height: 18px;
+	padding-left: 4px;
+	line-height: inherit;
+	font-size: 11px;
+	text-align: left;
+	font-weight: normal;
+	-webkit-border-radius: 4px 4px 0 0;
+       -moz-border-radius: 4px 4px 0 0;
+            border-radius: 4px 4px 0 0;
+	
+}
+
+.bootstrap-transfer-container .selector-available input {
+	width: 100%;
+	margin: -1px -8px -1px;
+	height: 10px;
+}
+
+.bootstrap-transfer-container .selector-filter {
+	background: white;
+	border: 1px solid #CCC;
+	border-width: 0 1px;
+	padding: 3px;
+	color: #999;
+	font-size: 10px;
+	margin: 0;
+	text-align: left;
+	vertical-align: middle;
+	line-height: 140%;
+}
+
+.bootstrap-transfer-container .selector-filter.right {
+	padding-top: 5px;
+	height: 18px;
+	position: relative;
+}
+.bootstrap-transfer-container .selector-filter.right p {
+	font-size: 11px;
+}
+
+.bootstrap-transfer-container a.selector-chooseall, 
+.bootstrap-transfer-container a.selector-clearall {
+	font-size: 80%;
+	text-decoration: none;
+	padding-left: 17px;
+	margin: 0;
+}
+
+.bootstrap-transfer-container a.selector-chooseall {
+	background: url("../img/bootstrap-transfer-selector-addall.gif") left center no-repeat;
+}
+
+.bootstrap-transfer-container a.selector-clearall {
+	background: url("../img/bootstrap-transfer-selector-removeall.gif") left center no-repeat;
+}
+
+.bootstrap-transfer-container .selector-chooser {
+	float: left;
+	width: 16px;
+	margin-top: -24px;
+	padding: 2px;
+}
+
+.bootstrap-transfer-container .selector-add {
+	background: url(../img/bootstrap-transfer-selector-add.gif) top center no-repeat;
+	margin-bottom: 3px;
+}
+
+.bootstrap-transfer-container .selector-remove {
+	background: url(../img/bootstrap-transfer-selector-remove.gif) top center no-repeat;
+}
+
+.bootstrap-transfer-container .selector-add, .selector-remove {
+	width: 16px;
+	height: 16px;
+	display: block;
+	text-indent: -3000px;
+	overflow: hidden;
+}
+
+.bootstrap-transfer-container .illustration {
+	position: absolute;
+	top: 5px;
+	left: 85px;
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	background: url(../img/bootstrap-transfer-selector-add.gif) top center no-repeat;
+}
+
+
+
+
+

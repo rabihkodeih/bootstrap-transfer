@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Bootstrap Transfer Demo</title>
+
+	<link href="css/bootstrap.css" rel="stylesheet">
+	<link href="css/bootstrap-transfer.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+	<h1>Bootstrap Transfer Multiselect Demo</h1>
+	<div id="test" style="width:400px; margin-left:30px;">
+	</div>
+	  
+	<script src="js/jquery.js"></script>
+    <script src="js/bootstrap-transfer.js"></script>
+    <script>
+		$(function() {
+			var t = $('#test').bootstrapTransfer();
+			t.populate([
+				{value:"1", content:"Apple"},
+				{value:"2", content:"Orange"},
+				{value:"3", content:"Banana"},
+				{value:"4", content:"Peach"},
+				{value:"5", content:"Grapes"}
+			]);
+			t.set(["2", "4"]);
+			console.log(t.get());
+		});
+    </script>
+  </body>
+</html>
+
+
+
+
