@@ -2,8 +2,8 @@ bootstrapTransfer
 =================
 
 Welcome to bootstrapTransfer. This is a two-column transfer multi-select widget. It is
-inspired by Django's admin multi-select widget. The look and feel is designed to blend with
-twitter bootstrap (2.0+) and the widget is compatible with jQuery 1.7+.
+inspired by Django admin module's similar widget. The look and feel is designed to blend with
+twitter bootstrap (2.0+), jQuery 1.7+ is assumed.
 
 Usage :
 
@@ -19,7 +19,7 @@ Also you can add some bootstrap classes such as 'input-xlarge' in forms:
 	
     <div id="test" class="input-xlarge"></div>
 	
-Now call bootstrapTransfer on the corresponding jquery object and add some options:
+Now call bootstrapTransfer on the corresponding jquery object and add some values:
 
     $(function() {
         ...
