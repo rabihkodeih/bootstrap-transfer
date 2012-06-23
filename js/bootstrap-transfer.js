@@ -13,8 +13,7 @@
                 _this._remaining_list.push([{value:e.value, content:e.content}, true]);
                 _this._target_list.push([{value:e.value, content:e.content}, false]);
             }
-            _this.update_old();
-            _this.update_lists();
+            _this.update_lists(true);
         };
         this.set_values = function(values) {
             _this.move_elems(values, false, true);
@@ -40,9 +39,7 @@
             _this.$choose_all_btn = _this.find('.selector-chooseall');
             _this.$clear_all_btn = _this.find('.selector-clearall');
             _this._remaining_list = [];
-            _this._remaining_list_old = {};
             _this._target_list = [];
-            _this._target_list_old = {};
             /* #=============================================================================== */
             /* # Apply settings */
             /* #=============================================================================== */
@@ -66,8 +63,7 @@
                 _this.move_all(true, false);
             });
             _this.$filter_input.keyup(function(){
-				_this.update_old();
-                _this.update_lists();
+				_this.update_lists(true);
             });
             /* #=============================================================================== */
             /* # Implement private functions */
@@ -79,10 +75,19 @@
                 })
                 return res;
             };
-            _this.update_lists = function() {
-                _this.$remaining_select.empty();
+			_this.to_dict = function(list) {
+				var res = {};
+				for (var i in list) res[list[i]] = true;
+				return res;
+			}
+            _this.update_lists = function(force_hilite_off) {
+                var old;
+				if (!force_hilite_off) {
+					old = [_this.to_dict(_this.get_internal(_this.$remaining_select)),
+						   _this.to_dict(_this.get_internal(_this.$target_select))];
+				}
+				_this.$remaining_select.empty();
                 _this.$target_select.empty();
-                var old = [_this._remaining_list_old, _this._target_list_old];
                 var lists = [_this._remaining_list, _this._target_list];
                 var source = [_this.$remaining_select, _this.$target_select];
                 for (var i in lists) {
@@ -90,7 +95,7 @@
                         var e = lists[i][j];
                         if (e[1]) {
                             var selected = '';
-                            if (settings.hilite_selection && !old[i].hasOwnProperty(e[0].value)) {
+                            if (!force_hilite_off && settings.hilite_selection && !old[i].hasOwnProperty(e[0].value)) {
                                 selected = 'selected="selected"';
                             }
                             source[i].append('<option ' + selected + 'value=' + e[0].value + '>' + e[0].content + '</option>');
@@ -106,7 +111,6 @@
                 })
             };
             _this.move_elems = function(values, b1, b2) {
-                _this.update_old();
                 for (var i in values) {
                     val = values[i];
                     for (var j in _this._remaining_list) {
@@ -117,28 +121,15 @@
                         }
                     }
                 }
-                _this.update_lists();
+                _this.update_lists(false);
             };
             _this.move_all = function(b1, b2) {
-                _this.update_old();
                 for (var i in _this._remaining_list) {
                     _this._remaining_list[i][1] = b1;
                     _this._target_list[i][1] = b2;
                 }
-                _this.update_lists();
+                _this.update_lists(false);
             };
-            _this.update_old = function() {
-                _this._remaining_list_old = {};
-                _this._target_list_old = {};
-                var old = [_this._remaining_list_old, _this._target_list_old];
-                var lists = [_this._remaining_list, _this._target_list];
-                for (var i in old) {
-                    for (var j in _this._remaining_list) {
-                        var e = lists[i][j];
-                        if (e[1]) old[i][e[0].value] = true;
-                    }
-                }
-            }
             return _this;
         });
     };
