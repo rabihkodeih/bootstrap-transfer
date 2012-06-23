@@ -1,6 +1,6 @@
 (function($){
     $.fn.bootstrapTransfer = function(options) {
-        var settings = $.extend({}, $.fn.bootstrapTransfer.defaults, options);
+        var settings = $.extend($.fn.bootstrapTransfer.defaults, options);
         var _this;
         /* #=============================================================================== */
         /* # Implement public functions */
@@ -13,17 +13,14 @@
                 _this._remaining_list.push([{value:e.value, content:e.content}, true]);
                 _this._target_list.push([{value:e.value, content:e.content}, false]);
             }
+            _this.update_old();
             _this.update_lists();
         };
-        this.set = function(values) {
+        this.set_values = function(values) {
             _this.move_elems(values, false, true);
         };
-        this.get = function() {
-            var res = [];
-            _this.$target_select.find('option').each(function() {
-                res.push($(this).val());
-            })
-            return res;
+        this.get_values = function(){
+            return _this.get_internal(_this.$target_select);
         };
         return this.each(function(){
             _this = $(this);
@@ -43,13 +40,16 @@
             _this.$choose_all_btn = _this.find('.selector-chooseall');
             _this.$clear_all_btn = _this.find('.selector-clearall');
             _this._remaining_list = [];
+            _this._remaining_list_old = {};
             _this._target_list = [];
+            _this._target_list_old = {};
             /* #=============================================================================== */
             /* # Apply settings */
             /* #=============================================================================== */
-            if (settings.hasOwnProperty('target_id')) {
-                if (settings.target_id != '') _this.$target_select.attr('id', settings.target_id);
-            }
+            /* target_id */
+            if (settings.target_id != '') _this.$target_select.attr('id', settings.target_id);
+            /* height */
+			_this.find('select.filtered').css('height', settings.height);
             /* #=============================================================================== */
             /* # Wire internal events */
             /* #=============================================================================== */
@@ -71,15 +71,29 @@
             /* #=============================================================================== */
             /* # Implement private functions */
             /* #=============================================================================== */
+            _this.get_internal = function(selector) {
+                var res = [];
+                selector.find('option').each(function() {
+                    res.push($(this).val());
+                })
+                return res;
+            };
             _this.update_lists = function() {
-                _this.$remaining_select.empty();
+            	_this.$remaining_select.empty();
                 _this.$target_select.empty();
+            	var old = [_this._remaining_list_old, _this._target_list_old];
                 var lists = [_this._remaining_list, _this._target_list];
                 var source = [_this.$remaining_select, _this.$target_select];
                 for (var i in lists) {
                     for (var j in lists[i]) {
                         var e = lists[i][j];
-                        if (e[1]) source[i].append('<option value=' + e[0].value + '>' + e[0].content + '</option>');
+                        if (e[1]) {
+                        	var selected = '';
+                        	if (settings.hilite_selection && !old[i].hasOwnProperty(e[0].value)) {
+                        		selected = 'selected="selected"';
+                            }
+                        	source[i].append('<option ' + selected + 'value=' + e[0].value + '>' + e[0].content + '</option>');
+                        }
                     }
                 }
                 _this.$remaining_select.find('option').each(function() {
@@ -91,7 +105,8 @@
                 })
             };
             _this.move_elems = function(values, b1, b2) {
-                for (var i in values) {
+                _this.update_old();
+            	for (var i in values) {
                     val = values[i];
                     for (var j in _this._remaining_list) {
                         var e = _this._remaining_list[j];
@@ -104,12 +119,25 @@
                 _this.update_lists();
             };
             _this.move_all = function(b1, b2) {
-                for (var i in _this._remaining_list) {
+            	_this.update_old();
+            	for (var i in _this._remaining_list) {
                     _this._remaining_list[i][1] = b1;
                     _this._target_list[i][1] = b2;
                 }
                 _this.update_lists();
             };
+            _this.update_old = function() {
+            	_this._remaining_list_old = {};
+            	_this._target_list_old = {};
+            	var old = [_this._remaining_list_old, _this._target_list_old];
+            	var lists = [_this._remaining_list, _this._target_list];
+                for (var i in old) {
+                	for (var j in _this._remaining_list) {
+                		var e = lists[i][j];
+                		if (e[1]) old[i][e[0].value] = true;
+                	}
+            	}
+            }
             return _this;
         });
     };
@@ -124,7 +152,7 @@
                                 <table width="100%" border="0">\
                                     <tr>\
                                         <td style="width:14px;">\
-                                            <i class="icon-search"></i>\
+                                            <i class="icon-search icon-custom2"></i>\
                                         </td>\
                                         <td>\
                                             <div style="padding-left:10px;">\
@@ -158,6 +186,8 @@
                     </td>\
                 </tr>\
             </table>',
+        'height': '10em',
+        'hilite_selection': true,
         'target_id': ''
     }
 })(jQuery);
