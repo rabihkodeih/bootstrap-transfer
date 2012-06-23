@@ -49,7 +49,7 @@
             /* target_id */
             if (settings.target_id != '') _this.$target_select.attr('id', settings.target_id);
             /* height */
-			_this.find('select.filtered').css('height', settings.height);
+            _this.find('select.filtered').css('height', settings.height);
             /* #=============================================================================== */
             /* # Wire internal events */
             /* #=============================================================================== */
@@ -79,20 +79,20 @@
                 return res;
             };
             _this.update_lists = function() {
-            	_this.$remaining_select.empty();
+                _this.$remaining_select.empty();
                 _this.$target_select.empty();
-            	var old = [_this._remaining_list_old, _this._target_list_old];
+                var old = [_this._remaining_list_old, _this._target_list_old];
                 var lists = [_this._remaining_list, _this._target_list];
                 var source = [_this.$remaining_select, _this.$target_select];
                 for (var i in lists) {
                     for (var j in lists[i]) {
                         var e = lists[i][j];
                         if (e[1]) {
-                        	var selected = '';
-                        	if (settings.hilite_selection && !old[i].hasOwnProperty(e[0].value)) {
-                        		selected = 'selected="selected"';
+                            var selected = '';
+                            if (settings.hilite_selection && !old[i].hasOwnProperty(e[0].value)) {
+                                selected = 'selected="selected"';
                             }
-                        	source[i].append('<option ' + selected + 'value=' + e[0].value + '>' + e[0].content + '</option>');
+                            source[i].append('<option ' + selected + 'value=' + e[0].value + '>' + e[0].content + '</option>');
                         }
                     }
                 }
@@ -106,7 +106,7 @@
             };
             _this.move_elems = function(values, b1, b2) {
                 _this.update_old();
-            	for (var i in values) {
+                for (var i in values) {
                     val = values[i];
                     for (var j in _this._remaining_list) {
                         var e = _this._remaining_list[j];
@@ -119,24 +119,24 @@
                 _this.update_lists();
             };
             _this.move_all = function(b1, b2) {
-            	_this.update_old();
-            	for (var i in _this._remaining_list) {
+                _this.update_old();
+                for (var i in _this._remaining_list) {
                     _this._remaining_list[i][1] = b1;
                     _this._target_list[i][1] = b2;
                 }
                 _this.update_lists();
             };
             _this.update_old = function() {
-            	_this._remaining_list_old = {};
-            	_this._target_list_old = {};
-            	var old = [_this._remaining_list_old, _this._target_list_old];
-            	var lists = [_this._remaining_list, _this._target_list];
+                _this._remaining_list_old = {};
+                _this._target_list_old = {};
+                var old = [_this._remaining_list_old, _this._target_list_old];
+                var lists = [_this._remaining_list, _this._target_list];
                 for (var i in old) {
-                	for (var j in _this._remaining_list) {
-                		var e = lists[i][j];
-                		if (e[1]) old[i][e[0].value] = true;
-                	}
-            	}
+                    for (var j in _this._remaining_list) {
+                        var e = lists[i][j];
+                        if (e[1]) old[i][e[0].value] = true;
+                    }
+                }
             }
             return _this;
         });
