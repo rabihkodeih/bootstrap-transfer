@@ -66,6 +66,7 @@
                 _this.move_all(true, false);
             });
             _this.$filter_input.keyup(function(){
+				_this.update_old();
                 _this.update_lists();
             });
             /* #=============================================================================== */
