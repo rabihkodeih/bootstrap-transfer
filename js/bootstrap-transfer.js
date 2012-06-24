@@ -50,28 +50,28 @@
                 _this.move_all(true, false);
             });
             _this.$filter_input.keyup(function(){
-				_this.update_lists(true);
+                _this.update_lists(true);
             });
             /* #=============================================================================== */
-			/* # Implement public functions */
-			/* #=============================================================================== */
-			_this.populate = function(input) {
-				// input: [{value:_, content:_}]
-				_this.$filter_input.val('');
-				for (var i in input) {
-					var e = input[i];
-					_this._remaining_list.push([{value:e.value, content:e.content}, true]);
-					_this._target_list.push([{value:e.value, content:e.content}, false]);
-				}
-				_this.update_lists(true);
-			};
-			_this.set_values = function(values) {
-				_this.move_elems(values, false, true);
-			};
-			_this.get_values = function(){
-				return _this.get_internal(_this.$target_select);
-			};
-			/* #=============================================================================== */
+            /* # Implement public functions */
+            /* #=============================================================================== */
+            _this.populate = function(input) {
+                // input: [{value:_, content:_}]
+                _this.$filter_input.val('');
+                for (var i in input) {
+                    var e = input[i];
+                    _this._remaining_list.push([{value:e.value, content:e.content}, true]);
+                    _this._target_list.push([{value:e.value, content:e.content}, false]);
+                }
+                _this.update_lists(true);
+            };
+            _this.set_values = function(values) {
+                _this.move_elems(values, false, true);
+            };
+            _this.get_values = function(){
+                return _this.get_internal(_this.$target_select);
+            };
+            /* #=============================================================================== */
             /* # Implement private functions */
             /* #=============================================================================== */
             _this.get_internal = function(selector) {
@@ -81,18 +81,18 @@
                 })
                 return res;
             };
-			_this.to_dict = function(list) {
-				var res = {};
-				for (var i in list) res[list[i]] = true;
-				return res;
-			}
+            _this.to_dict = function(list) {
+                var res = {};
+                for (var i in list) res[list[i]] = true;
+                return res;
+            }
             _this.update_lists = function(force_hilite_off) {
                 var old;
-				if (!force_hilite_off) {
-					old = [_this.to_dict(_this.get_internal(_this.$remaining_select)),
-						   _this.to_dict(_this.get_internal(_this.$target_select))];
-				}
-				_this.$remaining_select.empty();
+                if (!force_hilite_off) {
+                    old = [_this.to_dict(_this.get_internal(_this.$remaining_select)),
+                           _this.to_dict(_this.get_internal(_this.$target_select))];
+                }
+                _this.$remaining_select.empty();
                 _this.$target_select.empty();
                 var lists = [_this._remaining_list, _this._target_list];
                 var source = [_this.$remaining_select, _this.$target_select];
@@ -136,8 +136,8 @@
                 }
                 _this.update_lists(false);
             };
-			_this.data('bootstrapTransfer', _this);
-			return _this;
+            _this.data('bootstrapTransfer', _this);
+            return _this;
         });
     };
     $.fn.bootstrapTransfer.defaults = {
