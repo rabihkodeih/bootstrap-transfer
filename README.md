@@ -41,6 +41,11 @@ You can get the selected values any time:
 Setting new values is straightforward:
 
     t.set_values(["2", "4"]);
+	
+Alternatively, you can access the plugin object directly from the selector:
+
+	$('#test').data().bootstrapTransfer.get_values()
+	$('#test').data().bootstrapTransfer.set_values(["2", "4"])
 
 Note that the order of the items at population time is allways preserved in both get_values and set_values.
 

@@ -1,26 +1,13 @@
 (function($){
     $.fn.bootstrapTransfer = function(options) {
-        var settings = $.extend($.fn.bootstrapTransfer.defaults, options);
+        var settings = $.extend({}, $.fn.bootstrapTransfer.defaults, options);
         var _this;
         /* #=============================================================================== */
-        /* # Implement public functions */
+        /* # Expose public functions */
         /* #=============================================================================== */
-        this.populate = function(input) {
-            // input: [{value:_, content:_}]
-            _this.$filter_input.val('');
-            for (var i in input) {
-                var e = input[i];
-                _this._remaining_list.push([{value:e.value, content:e.content}, true]);
-                _this._target_list.push([{value:e.value, content:e.content}, false]);
-            }
-            _this.update_lists(true);
-        };
-        this.set_values = function(values) {
-            _this.move_elems(values, false, true);
-        };
-        this.get_values = function(){
-            return _this.get_internal(_this.$target_select);
-        };
+        this.populate = function(input) { _this.populate(input); };
+        this.set_values = function(values) { _this.set_values(values); };
+        this.get_values = function() { return _this.get_values(); };
         return this.each(function(){
             _this = $(this);
             /* #=============================================================================== */
@@ -66,6 +53,25 @@
 				_this.update_lists(true);
             });
             /* #=============================================================================== */
+			/* # Implement public functions */
+			/* #=============================================================================== */
+			_this.populate = function(input) {
+				// input: [{value:_, content:_}]
+				_this.$filter_input.val('');
+				for (var i in input) {
+					var e = input[i];
+					_this._remaining_list.push([{value:e.value, content:e.content}, true]);
+					_this._target_list.push([{value:e.value, content:e.content}, false]);
+				}
+				_this.update_lists(true);
+			};
+			_this.set_values = function(values) {
+				_this.move_elems(values, false, true);
+			};
+			_this.get_values = function(){
+				return _this.get_internal(_this.$target_select);
+			};
+			/* #=============================================================================== */
             /* # Implement private functions */
             /* #=============================================================================== */
             _this.get_internal = function(selector) {
@@ -130,7 +136,8 @@
                 }
                 _this.update_lists(false);
             };
-            return _this;
+			_this.data('bootstrapTransfer', _this);
+			return _this;
         });
     };
     $.fn.bootstrapTransfer.defaults = {
@@ -144,7 +151,7 @@
                                 <table width="100%" border="0">\
                                     <tr>\
                                         <td style="width:14px;">\
-                                            <i class="icon-search icon-custom2"></i>\
+                                            <i class="icon-search"></i>\
                                         </td>\
                                         <td>\
                                             <div style="padding-left:10px;">\
