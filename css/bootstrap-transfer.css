@@ -1,11 +1,11 @@
 .bootstrap-transfer-container {
-/* 	min-width: 280px; */
+	/* min-width: 280px; */
 }
 
 .bootstrap-transfer-container select {
 	-webkit-border-radius: 0 0 4px 4px;
-       -moz-border-radius: 0 0 4px 4px;
-            border-radius: 0 0 4px 4px;
+	-moz-border-radius: 0 0 4px 4px;
+	border-radius: 0 0 4px 4px;
 }
 
 .bootstrap-transfer-container .filtered {
@@ -41,9 +41,9 @@
 	text-align: left;
 	font-weight: normal;
 	-webkit-border-radius: 4px 4px 0 0;
-       -moz-border-radius: 4px 4px 0 0;
-            border-radius: 4px 4px 0 0;
-	
+	-moz-border-radius: 4px 4px 0 0;
+	border-radius: 4px 4px 0 0;
+
 }
 
 .bootstrap-transfer-container .selector-available input {
@@ -74,7 +74,7 @@
 	font-size: 11px;
 }
 
-.bootstrap-transfer-container a.selector-chooseall, 
+.bootstrap-transfer-container a.selector-chooseall,
 .bootstrap-transfer-container a.selector-clearall {
 	font-size: 80%;
 	text-decoration: none;
@@ -114,17 +114,16 @@
 	overflow: hidden;
 }
 
+.bootstrap-transfer-container .click-text {
+	float: left;
+}
 .bootstrap-transfer-container .illustration {
 	position: absolute;
 	top: 5px;
-	left: 85px;
+	margin-left: 5pt;
+	float: right;
 	display: inline-block;
 	width: 16px;
 	height: 16px;
 	background: url(../img/bootstrap-transfer-selector-add.gif) top center no-repeat;
 }
-
-
-
-
-
