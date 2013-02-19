@@ -39,15 +39,19 @@
             /* #=============================================================================== */
             _this.$add_btn.click(function(){
                 _this.move_elems(_this.$remaining_select.val(), false, true);
+                return false;
             });
             _this.$remove_btn.click(function(){
                 _this.move_elems(_this.$target_select.val(), true, false);
+                return false;
             });
             _this.$choose_all_btn.click(function(){
                 _this.move_all(false, true);
+                return false;
             });
             _this.$clear_all_btn.click(function(){
                 _this.move_all(true, false);
+                return false;
             });
             _this.$filter_input.keyup(function(){
                 _this.update_lists(true);
