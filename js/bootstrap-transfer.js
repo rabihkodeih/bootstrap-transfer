@@ -45,10 +45,12 @@
             /* #=============================================================================== */
             /* # Wire internal events */
             /* #=============================================================================== */
-            _this.$add_btn.click(function(){
+            _this.$add_btn.click(function(e){
+                e.preventDefault();
                 _this.move_elems(_this.$remaining_select.val(), false, true);
             });
-            _this.$remove_btn.click(function(){
+            _this.$remove_btn.click(function(e){
+                e.preventDefault();
                 _this.move_elems(_this.$target_select.val(), true, false);
             });
             _this.$choose_all_btn.click(function(e){
