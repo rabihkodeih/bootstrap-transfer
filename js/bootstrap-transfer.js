@@ -51,10 +51,12 @@
             _this.$remove_btn.click(function(){
                 _this.move_elems(_this.$target_select.val(), true, false);
             });
-            _this.$choose_all_btn.click(function(){
+            _this.$choose_all_btn.click(function(e){
+                e.preventDefault();
                 _this.move_all(false, true);
             });
-            _this.$clear_all_btn.click(function(){
+            _this.$clear_all_btn.click(function(e){
+                e.preventDefault();
                 _this.move_all(true, false);
             });
             _this.$filter_input.keyup(function(){
@@ -86,14 +88,14 @@
                 var res = [];
                 selector.find('option').each(function() {
                     res.push($(this).val());
-                })
+                });
                 return res;
             };
             _this.to_dict = function(list) {
                 var res = {};
                 for (var i in list) res[list[i]] = true;
                 return res;
-            }
+            };
             _this.update_lists = function(force_hilite_off) {
                 var old;
                 if (!force_hilite_off) {
@@ -122,7 +124,7 @@
                     if (outer.indexOf(inner) == -1) {
                         $(this).remove();
                     }
-                })
+                });
             };
             _this.move_elems = function(values, b1, b2) {
                 for (var i in values) {
@@ -149,7 +151,7 @@
         });
     };
     $.fn.bootstrapTransfer.defaults = {
-        'template':                                         
+        'template':
             '<table width="100%" cellspacing="0" cellpadding="0">\
                 <tr>\
                     <td width="50%">\
@@ -200,5 +202,5 @@
         'remaining_select_name': 'remaining_select',
         'target_select_id': 'target_select',
         'target_select_name': 'target_select'
-    }
+    };
 })(jQuery);
