@@ -25,15 +25,31 @@
             _this.$remove_btn = _this.find('.selector-remove');
             _this.$choose_all_btn = _this.find('.selector-chooseall');
             _this.$clear_all_btn = _this.find('.selector-clearall');
+
+            /* Custom: Add name properties to transfer form elements */
+            // var remaining_select_name = 'remaining_select',
+            //     target_select_name = 'target_select';
+
+            
+            /* End Custom */
+
             _this._remaining_list = [];
             _this._target_list = [];
             /* #=============================================================================== */
             /* # Apply settings */
             /* #=============================================================================== */
             /* target_id */
-            if (settings.target_id != '') _this.$target_select.attr('id', settings.target_id);
+            if (settings.target_id !== '') _this.$target_select.attr('id', settings.target_id);
             /* height */
             _this.find('select.filtered').css('height', settings.height);
+            /* form element names */
+            if (settings.remaining_select_id !== '') remaining_select_id = settings.remaining_select_id;
+            if (settings.remaining_select_name !== '') remaining_select_name = settings.remaining_select_name;
+            if (settings.target_select_id !== '') target_select_id = settings.target_select_id;
+            if (settings.target_select_name !== '') target_select_name = settings.target_select_name;
+
+            _this.$remaining_select.attr('id', remaining_select_id).attr('name', remaining_select_name);
+            _this.$target_select.attr('id', target_select_id).attr('name', target_select_name);
             /* #=============================================================================== */
             /* # Wire internal events */
             /* #=============================================================================== */
@@ -187,6 +203,10 @@
             </table>',
         'height': '10em',
         'hilite_selection': true,
-        'target_id': ''
+        'target_id': '',
+        'remaining_select_id': 'remaining_select',
+        'remaining_select_name': 'remaining_select',
+        'target_select_id': 'target_select',
+        'target_select_name': 'target_select'
     }
 })(jQuery);
