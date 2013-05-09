@@ -25,14 +25,6 @@
             _this.$remove_btn = _this.find('.selector-remove');
             _this.$choose_all_btn = _this.find('.selector-chooseall');
             _this.$clear_all_btn = _this.find('.selector-clearall');
-
-            /* Custom: Add name properties to transfer form elements */
-            // var remaining_select_name = 'remaining_select',
-            //     target_select_name = 'target_select';
-
-            
-            /* End Custom */
-
             _this._remaining_list = [];
             _this._target_list = [];
             /* #=============================================================================== */
