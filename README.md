@@ -7,7 +7,14 @@ twitter bootstrap (2.0+), jQuery 1.7+ is assumed.
 
 ###Usage
 
-First, in your html create a div and give it some id:
+You will need to reference jQuery and Twitter Bootstrap's CSS and JavaScript files somewhere in your
+templating *before* invoking bootstrapTransfer.
+
+It is recommended that you load these resources from a CDN, such as <http://www.bootstrapcdn.com/>.
+Using FontAwesome: <http://fortawesome.github.io/Font-Awesome/> as a replacement for Bootstrap's GIF-based
+icons is also recommended.
+
+In your html create a div and give it some id:
 
     <div id="test"></div>
 
