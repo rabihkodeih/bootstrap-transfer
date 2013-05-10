@@ -5,9 +5,16 @@ Welcome to bootstrapTransfer. This is a two-column transfer multi-select widget.
 inspired by Django admin module's similar widget. The look and feel is designed to blend with
 twitter bootstrap (2.0+), jQuery 1.7+ is assumed.
 
-Usage :
+###Usage
 
-First, in your html create a div and give it some id:
+You will need to reference jQuery and Twitter Bootstrap's CSS and JavaScript files somewhere in your
+templating *before* invoking bootstrapTransfer.
+
+It is recommended that you load these resources from a CDN, such as <http://www.bootstrapcdn.com/>.
+Using FontAwesome: <http://fortawesome.github.io/Font-Awesome/> as a replacement for Bootstrap's GIF-based
+icons is also recommended.
+
+In your html create a div and give it some id:
 
     <div id="test"></div>
 
@@ -25,11 +32,11 @@ Now call bootstrapTransfer on the corresponding jquery object and add some value
         ...
         var t = $('#test').bootstrapTransfer();
         t.populate([
-            {value:"1", content:"Apple"},
-            {value:"2", content:"Orange"},
-            {value:"3", content:"Banana"},
-            {value:"4", content:"Peach"},
-            {value:"5", content:"Grapes"}
+            {value:'1', content:'Apple'},
+            {value:'2', content:'Orange'},
+            {value:'3', content:'Banana'},
+            {value:'4', content:'Peach'},
+            {value:'5', content:'Grapes'}
         ]);
         ...
     });
@@ -40,26 +47,55 @@ You can get the selected values any time:
 
 Setting new values is straightforward:
 
-    t.set_values(["2", "4"]);
+    t.set_values(['2', '4']);
 	
 Alternatively, you can access the plugin object directly from the selector:
 
 	$('#test').data().bootstrapTransfer.get_values()
-	$('#test').data().bootstrapTransfer.set_values(["2", "4"])
+	$('#test').data().bootstrapTransfer.set_values(['2', '4'])
 
-Note that the order of the items at population time is allways preserved in both get_values and set_values.
+Note that the order of the items at population time is always preserved in both get_values and set_values.
 
-Options are:
+###Options
 
-    target_id : the id of the internal select element, useful for wiring events and such
-	height : the height of the select columns, default value is '10em'
-	hilite_selection: if true will hilite the moved items between the columns, default value is true
+<table>
+    <tr>
+        <th style="text-align:left; vertical-align:top;">target_id</th>
+        <td style="text-align:left;">The "id" attribute of the internal select element, useful for wiring events and such.</td>
+    </tr>
+    <tr>
+        <th style="text-align:left; vertical-align:top;">height</th>
+        <td style="text-align:left;">The height of the select columns, default value is '10em'.</td>
+    </tr>
+    <tr>
+        <th style="text-align:left; vertical-align:top;">hilite_selection</th>
+        <td style="text-align:left; vertical-align:top;">If true will hilite the moved items between the columns. Defaults to true.</td>
+    </tr>
+    <tr>
+        <th style="text-align:left; vertical-align:top;">remaining_select_id</th>
+        <td style="text-align:left; vertical-align:top;">The "id" attribute of the remaining choices select element (on left). Defaults to "remaining_select".</td>
+    </tr>
+    <tr>
+        <th style="text-align:left; vertical-align:top;">remaining_select_name</th>
+        <td style="text-align:left; vertical-align:top;">The "name" attribute of the remaining choices select element. Defaults to "remaining_select".</td>
+    </tr>
+    <tr>
+        <th style="text-align:left; vertical-align:top;">target_select_id</th>
+        <td style="text-align:left; vertical-align:top;">The "id" attribute of the target choices select element (on left). Defaults to "target_select".</td>
+    </tr>
+    <tr>
+        <th style="text-align:left; vertical-align:top;">target_select_name</th>
+        <td style="text-align:left; vertical-align:top;">The "name" attribute of the target choices select element. Defaults to "target_select".</td>
+    </tr>
+</table>
 	
-Example:	
+###Example:	
 
     $('#test').bootstrapTransfer(
-        {'target_id': 'multi-select-input'
-         'height': '15em',
-         'hilite_selection': false});
+    {
+        'target_id': 'multi-select-input'
+        'height': '15em',
+        'hilite_selection': false
+    });
 
 I hope you find this widget useful.

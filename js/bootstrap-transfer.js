@@ -31,22 +31,34 @@
             /* # Apply settings */
             /* #=============================================================================== */
             /* target_id */
-            if (settings.target_id != '') _this.$target_select.attr('id', settings.target_id);
+            if (settings.target_id !== '') _this.$target_select.attr('id', settings.target_id);
             /* height */
             _this.find('select.filtered').css('height', settings.height);
+            /* form element names */
+            if (settings.remaining_select_id !== '') remaining_select_id = settings.remaining_select_id;
+            if (settings.remaining_select_name !== '') remaining_select_name = settings.remaining_select_name;
+            if (settings.target_select_id !== '') target_select_id = settings.target_select_id;
+            if (settings.target_select_name !== '') target_select_name = settings.target_select_name;
+
+            _this.$remaining_select.attr('id', remaining_select_id).attr('name', remaining_select_name);
+            _this.$target_select.attr('id', target_select_id).attr('name', target_select_name);
             /* #=============================================================================== */
             /* # Wire internal events */
             /* #=============================================================================== */
-            _this.$add_btn.click(function(){
+            _this.$add_btn.click(function(e){
+                e.preventDefault();
                 _this.move_elems(_this.$remaining_select.val(), false, true);
             });
-            _this.$remove_btn.click(function(){
+            _this.$remove_btn.click(function(e){
+                e.preventDefault();
                 _this.move_elems(_this.$target_select.val(), true, false);
             });
-            _this.$choose_all_btn.click(function(){
+            _this.$choose_all_btn.click(function(e){
+                e.preventDefault();
                 _this.move_all(false, true);
             });
-            _this.$clear_all_btn.click(function(){
+            _this.$clear_all_btn.click(function(e){
+                e.preventDefault();
                 _this.move_all(true, false);
             });
             _this.$filter_input.keyup(function(){
@@ -78,14 +90,14 @@
                 var res = [];
                 selector.find('option').each(function() {
                     res.push($(this).val());
-                })
+                });
                 return res;
             };
             _this.to_dict = function(list) {
                 var res = {};
                 for (var i in list) res[list[i]] = true;
                 return res;
-            }
+            };
             _this.update_lists = function(force_hilite_off) {
                 var old;
                 if (!force_hilite_off) {
@@ -114,7 +126,7 @@
                     if (outer.indexOf(inner) == -1) {
                         $(this).remove();
                     }
-                })
+                });
             };
             _this.move_elems = function(values, b1, b2) {
                 for (var i in values) {
@@ -141,7 +153,7 @@
         });
     };
     $.fn.bootstrapTransfer.defaults = {
-        'template':                                         
+        'template':
             '<table width="100%" cellspacing="0" cellpadding="0">\
                 <tr>\
                     <td width="50%">\
@@ -187,6 +199,10 @@
             </table>',
         'height': '10em',
         'hilite_selection': true,
-        'target_id': ''
-    }
+        'target_id': '',
+        'remaining_select_id': 'remaining_select',
+        'remaining_select_name': 'remaining_select',
+        'target_select_id': 'target_select',
+        'target_select_name': 'target_select'
+    };
 })(jQuery);

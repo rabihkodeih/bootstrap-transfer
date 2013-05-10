@@ -1,7 +1,3 @@
-.bootstrap-transfer-container {
-/* 	min-width: 280px; */
-}
-
 .bootstrap-transfer-container select {
 	-webkit-border-radius: 0 0 4px 4px;
        -moz-border-radius: 0 0 4px 4px;
@@ -22,11 +18,11 @@
 }
 
 .bootstrap-transfer-container .selector-available h2 {
-	background: white url("../img/bootstrap-transfer-nav-bg.gif") bottom left repeat-x;
+	background: white url(../images/bootstrap-transfer-nav-bg.gif) bottom left repeat-x;
 }
 
 .bootstrap-transfer-container .selector-chosen h2 {
-	background: white url("../img/bootstrap-transfer-default-bg.gif") bottom left repeat-x;
+	background: white url(../images/bootstrap-transfer-default-bg.gif) bottom left repeat-x;
 	color: white;
 }
 
@@ -47,7 +43,7 @@
 }
 
 .bootstrap-transfer-container .selector-available input {
-	width: 100%;
+	width: 99%;
 	margin: -1px -8px -1px;
 	height: 10px;
 }
@@ -83,11 +79,11 @@
 }
 
 .bootstrap-transfer-container a.selector-chooseall {
-	background: url("../img/bootstrap-transfer-selector-addall.gif") left center no-repeat;
+	background: url(../images/bootstrap-transfer-selector-addall.gif) left center no-repeat;
 }
 
 .bootstrap-transfer-container a.selector-clearall {
-	background: url("../img/bootstrap-transfer-selector-removeall.gif") left center no-repeat;
+	background: url(../images/bootstrap-transfer-selector-removeall.gif) left center no-repeat;
 }
 
 .bootstrap-transfer-container .selector-chooser {
@@ -98,12 +94,12 @@
 }
 
 .bootstrap-transfer-container .selector-add {
-	background: url(../img/bootstrap-transfer-selector-add.gif) top center no-repeat;
+	background: url(../images/bootstrap-transfer-selector-add.gif) top center no-repeat;
 	margin-bottom: 3px;
 }
 
 .bootstrap-transfer-container .selector-remove {
-	background: url(../img/bootstrap-transfer-selector-remove.gif) top center no-repeat;
+	background: url(../images/bootstrap-transfer-selector-remove.gif) top center no-repeat;
 }
 
 .bootstrap-transfer-container .selector-add, .selector-remove {
@@ -121,7 +117,7 @@
 	display: inline-block;
 	width: 16px;
 	height: 16px;
-	background: url(../img/bootstrap-transfer-selector-add.gif) top center no-repeat;
+	background: url(../images/bootstrap-transfer-selector-add.gif) top center no-repeat;
 }
 
 
