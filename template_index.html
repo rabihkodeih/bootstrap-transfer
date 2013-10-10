@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Bootstrap Transfer Demo</title>
+
+		<link href="css/bootstrap.css" rel="stylesheet">
+		<link href="css/bootstrap-template-transfer.css" rel="stylesheet">
+		<style>
+			.bootstrap-transfer-container .selector-add {
+				background: auto;
+				margin-bottom: auto;
+			}
+			
+			.bootstrap-transfer-container .selector-remove {
+				background: auto;
+			}
+
+			.bootstrap-transfer-container .selector-add, .selector-remove {
+				width: auto;
+				height: auto;
+				display: auto;
+				text-indent: auto;
+				overflow: auto;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="container">
+		<h1>Bootstrap Transfer Multiselect Demo</h1>
+		<div id="test" style="width: 600px;" ></div>
+
+		<script src="js/jquery.js"></script>
+		<script src="js/bootstrap-transfer.js"></script>
+		
+		<script>
+			$(function() {
+				var t = $('#test').bootstrapTransfer({
+					'target_id' : 'multi-select-input',
+					'height' : '15em',
+					'hilite_selection' : true,
+					'template':
+						'<div class="input-prepend"><span class="add-on"><i class="icon-search"></i></span> '+
+							'<input type="text" class="span2 filter-input"></div>'+
+						'<table width="100%" cellpadding="0" cellspacing="0">' +
+							"<tbody>" + 
+								"<tr>"+
+									'<td width="50%">'+
+										'<h4>{%=available_title%}</h4>' + 
+										'<select class="filtered remaining span12" id="blocked_affiliates" multiple="multiple" name="blocked_affiliates[]" size="10"></select>'+
+									'</td>'+
+									'<td style="padding: 2px;">'+
+										'<div class="btn-group btn-group-vertical" style="display: inline-block;">'+
+											'<button type="button" class="btn btn-small selector-chooseall" title="{%=add_all_button%}">'+ 
+												'<i class="icon-forward"></i></button>'+
+											'<button type="button"  class="btn btn-small selector-add" title="{%=add_button%}" >'+ 
+												'<i class="icon-chevron-right"></i> </button>'+
+											'<button type="button" class="btn btn-small selector-remove" title="{%=remove_button%}" >'+ 
+												'<i class="icon-chevron-left"></i></button>'+
+											'<button type="button" class="btn btn-small selector-clearall" title="{%=remove_all_button%}" >'+ 
+												'<i class="icon-backward"></i></button>'+
+										'</div>'+
+									'</td>'+
+									'<td width="50%">'+
+										'<h4>{%=selected_title%}</h4>' + 
+										'<select class="filtered target span12" id="allowed_affiliates" multiple="multiple" name="allowed_affiliates[]" size="10">'+
+										'</select>'+
+									'</td>'+
+								'</tr>'+
+							'</tbody>'+
+						'</table>'
+				});
+
+				t.populate([{
+					value : "1",
+					content : "Apple"
+				}, {
+					value : "2",
+					content : "Orange"
+				}, {
+					value : "3",
+					content : "Banana"
+				}, {
+					value : "4",
+					content : "Peach"
+				}, {
+					value : "5",
+					content : "Grapes"
+				}]);
+				t.initialize_target(["2"]);
+				//t.set_values(["2", "4"]);
+				//console.log(t.get_values());
+			});
+		</script>
+
+	</body>
+</html>
+

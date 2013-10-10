@@ -18,6 +18,18 @@
 		
 		<script>
 			$(function() {
+				/*
+				 * Example of locale por spanish
+				 */
+				$.fn.bootstrapTransfer.locale = {
+					available_title: 'Disponible',
+					selected_title: 'Seleccionados',
+					help_text: 'Agregue presionando',
+					add_button: 'Agregar',
+					remove_button: 'Remover',
+					add_all_button: 'Agregar todos',
+					remove_all_button: 'Remover todos'
+				};
 				var t = $('#test').bootstrapTransfer({
 					'target_id' : 'multi-select-input',
 					'height' : '15em',
