@@ -70,6 +70,15 @@
                 _this.update_lists(true);
                 return false;
             });
+            _this.$remaining_select.dblclick(function(){
+                _this.move_elems(_this.$remaining_select.val(), false, true);
+                return false;
+            });
+            _this.$target_select.dblclick(function(){
+                _this.move_elems(_this.$target_select.val(), true, false);
+                return false;
+            });
+            
             /* #=============================================================================== */
             /* # Implement public functions */
             /* #=============================================================================== */
@@ -215,7 +224,7 @@
                         <div class="selector-chosen">\
                             <h2>{%=selected_title%}</h2>\
                             <div class="selector-filter right">\
-                                <p>{%=help_text%}</p><span class="illustration"></span>\
+                                <p>{%=help_text%}</p><col-md- class="illustration"></col-md->\
                             </div>\
                             <select multiple="multiple" class="filtered target">\
                             </select>\

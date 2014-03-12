@@ -65,7 +65,7 @@ Example:
 
 Localization:
 
-If needed, you specify the labels for the widget. In this example the labels are set to spanish:
+If needed, specify the labels for the widget. In this example the labels are set to spanish:
 
     $.fn.bootstrapTransfer.locale = {
 	    available_title: 'Disponible',
@@ -79,7 +79,7 @@ If needed, you specify the labels for the widget. In this example the labels are
 
 Templating :
 
-You can specify actual the html where transfer will be 
+You can specify the html where the bootstrap-transfer widget will be 
 
     var t = $('#test').bootstrapTransfer({
 		'target_id' : 'multi-select-input',
