@@ -97,23 +97,6 @@
 	padding: 2px;
 }
 
-.bootstrap-transfer-container .selector-add {
-	background: url(../img/bootstrap-transfer-selector-add.gif) top center no-repeat;
-	margin-bottom: 3px;
-}
-
-.bootstrap-transfer-container .selector-remove {
-	background: url(../img/bootstrap-transfer-selector-remove.gif) top center no-repeat;
-}
-
-
-.bootstrap-transfer-container .selector-add, .selector-remove {
-	width: 16px;
-	height: 16px;
-	display: block;
-	text-indent: -3000px;
-	overflow: hidden;
-}
 
 
 .bootstrap-transfer-container .illustration {

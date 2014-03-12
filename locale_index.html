@@ -13,11 +13,23 @@
 		<h1>Bootstrap Transfer Multiselect Demo</h1>
 		<div id="test" style="width: 600px;" ></div>
 
-		<script src="http://code.jquery.com/jquery-1.7.1.js"></script>
+		<script src="js/jquery.js"></script>
 		<script src="js/bootstrap-transfer.js"></script>
 		
 		<script>
 			$(function() {
+				/*
+				 * Example of locale por spanish
+				 */
+				$.fn.bootstrapTransfer.locale = {
+					available_title: 'Disponible',
+					selected_title: 'Seleccionados',
+					help_text: 'Agregue presionando',
+					add_button: 'Agregar',
+					remove_button: 'Remover',
+					add_all_button: 'Agregar todos',
+					remove_all_button: 'Remover todos'
+				};
 				var t = $('#test').bootstrapTransfer({
 					'target_id' : 'multi-select-input',
 					'height' : '15em',
