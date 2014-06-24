@@ -32,6 +32,7 @@
             /* #=============================================================================== */
             /* target_id */
             if (settings.target_id != '') _this.$target_select.attr('id', settings.target_id);
+            if (settings.target_name != '') _this.$target_select.attr('name', settings.target_name);
             /* height */
             _this.find('select.filtered').css('height', settings.height);
             /* #=============================================================================== */
@@ -90,7 +91,7 @@
                 var old;
                 if (!force_hilite_off) {
                     old = [_this.to_dict(_this.get_internal(_this.$remaining_select)),
-                           _this.to_dict(_this.get_internal(_this.$target_select))];
+                        _this.to_dict(_this.get_internal(_this.$target_select))];
                 }
                 _this.$remaining_select.empty();
                 _this.$target_select.empty();
@@ -141,7 +142,7 @@
         });
     };
     $.fn.bootstrapTransfer.defaults = {
-        'template':                                         
+        'template':
             '<table width="100%" cellspacing="0" cellpadding="0">\
                 <tr>\
                     <td width="50%">\
@@ -175,7 +176,7 @@
                     <td width="50%">\
                         <div class="selector-chosen">\
                             <h2>Chosen</h2>\
-                            <div class="selector-filter right">\
+                            <div class="selector-filter">\
                                 <p>Select then click</p><span class="illustration"></span>\
                             </div>\
                             <select multiple="multiple" class="filtered target">\
@@ -187,6 +188,7 @@
             </table>',
         'height': '10em',
         'hilite_selection': true,
-        'target_id': ''
+        'target_id': '',
+        'target_name': ''
     }
 })(jQuery);
